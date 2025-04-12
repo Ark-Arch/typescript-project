@@ -6,13 +6,26 @@
 //     }
 // }
 
+// class User {
+//     public email: string
+//     name: string
+//     city: string = ""
+//     private readonly country: string = "Nigeria" //with this i can use the variable only within this class
+//     constructor(email: string, name: string){
+//         this.email = email;
+//         this.name = name
+//     }
+// }
+
+//using modifiers instead: production ready code
 class User {
-    email: string
-    name: string
-    city: string = ""
-    constructor(email: string, name: string){
-        this.email = email;
-        this.name = name
+    readonly city: string= "Lagos State"
+    constructor(
+        public email: string,
+        public name: string,
+        // private userId: string
+    ){
+
     }
 }
 
