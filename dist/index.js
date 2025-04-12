@@ -17,6 +17,7 @@
 //     }
 // }
 //using modifiers instead: production ready code
+// public and private access modifiers: they decide how much access i have to a property or method
 class User {
     constructor(email, name) {
         this.email = email;
@@ -39,6 +40,17 @@ class User {
             throw new Error("Course count should be more than 1");
         }
         this._courseCount = courseNum;
+    }
+}
+// inheritance would require all the properties of the parent class, but will not require the private properties of the class
+// but with the protected keyword, it is now accessible to the inherited classes
+class SubUser extends User {
+    constructor() {
+        super(...arguments);
+        this.isFamily = true;
+    }
+    changeCourseCount() {
+        this._courseCount = 4;
     }
 }
 const hitesh = new User("hitesh@h.com", "hitesh");
