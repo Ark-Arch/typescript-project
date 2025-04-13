@@ -46,3 +46,47 @@ const getMoreSearchProducts = <T,>(products: T[]): T => {
     const myIndex = 4
     return products[myIndex]
 }
+
+// using type parameters in generic constraints
+function anotherFunction<T, U extends number>(valOne: T, valTwo: U):object {
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+anotherFunction(3, 4) // so that now, the second argument can only be a number. but this looks like it defeats the purpose of a generic definition.
+
+// A REAL WORLD USE CASE
+interface Database {
+    connection: string,
+    username: string,
+    password: string
+}
+
+function realFunction<T, U extends Database>(valOne:T, valTwo: U){
+    return {
+        valOne,
+        valTwo
+    }
+}
+
+// using class types in generics
+interface Quiz{
+    name: string,
+    type: string
+}
+
+interface Course{
+    name: string,
+    author: string,
+    subject: string
+}
+
+class Sellable<T>{
+    public cart: T[] = []
+
+    addToCart(product: T){
+        this.cart.push(product)
+    }
+}
